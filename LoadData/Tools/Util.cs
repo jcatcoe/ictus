@@ -257,7 +257,6 @@ namespace LoadData.Tools
         {
             try
             {
-
                 if (LoadDataMasterList())
                 {
                     if (LoaumeDataTMP())

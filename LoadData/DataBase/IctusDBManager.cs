@@ -273,6 +273,43 @@ namespace LoadData.DataBase
             return result;
         }
 
+        public static bool DeleteIctusData(long pacienteID)
+        {
+            bool result = false;
+
+            try
+            {
+                IMongoCollection<ictusData> collection = db.GetCollection<ictusData>("ictusdata");
+
+                System.Threading.Tasks.Task <DeleteResult> tempResult = collection.DeleteOneAsync(x => x.pacienteID == pacienteID);
+                
+                result = true;
+            }
+            catch (Exception exp)
+            {
+                ncLog.Exception("NewIctusData::Exception::" + exp.Message);
+            }
+
+            return result;
+        }
+
+        public static bool DropIctusData()
+        {
+            bool result = false;
+
+            try
+            {
+                db.DropCollection("ictusdata");
+
+                result = true;
+            }
+            catch (Exception exp)
+            {
+                ncLog.Exception("NewIctusData::Exception::" + exp.Message);
+            }
+
+            return result;
+        }
 
 
 

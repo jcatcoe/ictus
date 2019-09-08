@@ -209,3 +209,15 @@
 [04/09/2019 20:44:12] ERROR - ictusData:UME is already assigned for pacienteID:20180206412
 [04/09/2019 20:44:12] Message - LoadDB::Nº rows ictusDataColletion:[78120]
 [04/09/2019 20:56:16] Message - LoadDB::Nº rows inserted:[78120]
+[07/09/2019 11:47:50] Message - USVBList:[121] - ZBSList:[268] - HospitalesList:[99] - umeDataTMPList:[275302]
+[07/09/2019 11:47:54] Message - umeDataTMPFilters::Nº rows without own names:154966
+[07/09/2019 11:47:54] Message - umeDataTMPFilters::Nº rows without COMUNICACION, ASIGNACION,RECURSO INNECESARIO and INCIDENCIA:135094
+[07/09/2019 11:47:54] Message - umeDataTMPFilters::Nº rows without all time fields empty:133449
+[07/09/2019 11:47:54] Message - umeDataTMPFilters::Nº rows grouped by inc_ic:78406
+[07/09/2019 11:47:56] Message - LoadTemporalData::ictusDataMap Rows:[78323]
+[07/09/2019 11:51:38] Message - USVBList:[121] - ZBSList:[268] - HospitalesList:[99] - umeDataTMPList:[275302]
+[07/09/2019 11:51:41] Message - umeDataTMPFilters::Nº rows without own names:154966
+[07/09/2019 11:51:41] Message - umeDataTMPFilters::Nº rows without COMUNICACION, ASIGNACION,RECURSO INNECESARIO and INCIDENCIA:135094
+[07/09/2019 11:51:41] Message - umeDataTMPFilters::Nº rows without all time fields empty:133449
+[07/09/2019 11:51:41] Message - umeDataTMPFilters::Nº rows grouped by inc_ic:78406
+[07/09/2019 11:51:43] Message - LoadTemporalData::ictusDataMap Rows:[78323]

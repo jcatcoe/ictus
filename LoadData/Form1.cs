@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LoadData.Tools;
 using LoadData.DataBase;
+using MongoDB.Driver;
+using MongoDB.Bson;
 
 namespace LoadData
 {
@@ -25,7 +27,7 @@ namespace LoadData
         {
             ncLog.SetMyHome(this);
 
-            Util.LoadTemporalData();
+            //Util.LoadTemporalData();
         }
 
         private void btLoadZBS_Click(object sender, EventArgs e)
@@ -464,5 +466,59 @@ namespace LoadData
             ncLog.Message("LoadDB::Nº rows inserted:[" + ictusDataInDB.Count() + "]");
 
         }
+
+        private void btClearDB_Click(object sender, EventArgs e)
+        {
+            IctusDBManager.DropIctusData();
+
+            ncLog.Message("ClearDB::Ictus data collection has been deleted");
+        }
+
+        private void btUpdateDB_Click(object sender, EventArgs e)
+        {
+            IctusDBManager.DropIctusData();
+
+            ncLog.Message("ClearDB::Ictus data collection has been deleted");
+
+            List<ictusData> ictusDataColletion = IctusDBManager.GetAllictusData();
+
+            if (ictusDataColletion != null && ictusDataColletion.Count() > 0)
+            {
+                ncLog.Warning("LoadDB::ictusData collections is not empty. You must remove it!! Nº documents:" + ictusDataColletion.Count());
+                return;
+            }
+
+            ictusDataColletion.Clear();
+
+            foreach (KeyValuePair<long, List<umeDataTMP>> iter in Util.ictusDataMap)
+            {
+                ictusData newIctusdata = new ictusData(iter.Key, iter.Value);
+                if (newIctusdata.IsOk())
+                {
+                    ictusDataColletion.Add(newIctusdata);
+                }
+            }
+
+            ncLog.Message("LoadDB::Nº rows ictusDataColletion:[" + ictusDataColletion.Count() + "]");
+
+
+            foreach (ictusData iter in ictusDataColletion)
+            {
+                if (!IctusDBManager.NewIctusData(iter))
+                {
+                    ncLog.Error("LoadDB::Unable to insert new ictusData for pacienteID:" + iter.pacienteID);
+                }
+            }
+
+            List<ictusData> ictusDataInDB = IctusDBManager.GetAllictusData();
+
+            ncLog.Message("LoadDB::Nº rows inserted:[" + ictusDataInDB.Count() + "]");
+        }
+    }
+
+    public class kk
+    {
+        public ObjectId Id { get; set; }
+        public long id { get; set; }
     }
 }

@@ -33,34 +33,34 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tpMasterData = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
+            this.btLoadHospitales = new System.Windows.Forms.Button();
             this.txtHospitales = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btLoadUSVB = new System.Windows.Forms.Button();
             this.txtUSVBPath = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btLoadZBS = new System.Windows.Forms.Button();
             this.txtZBSPath = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDatosUME = new System.Windows.Forms.TextBox();
+            this.btLoadDatosUME = new System.Windows.Forms.Button();
+            this.tpFinalData = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btUpdateDB = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btClearDB = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btLoadDB = new System.Windows.Forms.Button();
             this.logPanel = new System.Windows.Forms.Panel();
             this.txtLog = new System.Windows.Forms.TextBox();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.tpFinalData = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btLoadHospitales = new System.Windows.Forms.Button();
-            this.btLoadUSVB = new System.Windows.Forms.Button();
-            this.btLoadZBS = new System.Windows.Forms.Button();
-            this.btLoadDatosUME = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btClearDB = new System.Windows.Forms.Button();
-            this.btLoadDB = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tpMasterData.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.logPanel.SuspendLayout();
             this.tpFinalData.SuspendLayout();
+            this.logPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -102,6 +102,19 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Hospitales";
             // 
+            // btLoadHospitales
+            // 
+            this.btLoadHospitales.BackColor = System.Drawing.SystemColors.Control;
+            this.btLoadHospitales.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btLoadHospitales.BackgroundImage")));
+            this.btLoadHospitales.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btLoadHospitales.Location = new System.Drawing.Point(727, 109);
+            this.btLoadHospitales.Name = "btLoadHospitales";
+            this.btLoadHospitales.Size = new System.Drawing.Size(35, 38);
+            this.btLoadHospitales.TabIndex = 7;
+            this.toolTip.SetToolTip(this.btLoadHospitales, "Cargar Zona Basica de Control");
+            this.btLoadHospitales.UseVisualStyleBackColor = false;
+            this.btLoadHospitales.Click += new System.EventHandler(this.btLoadHospitales_Click);
+            // 
             // txtHospitales
             // 
             this.txtHospitales.Location = new System.Drawing.Point(98, 119);
@@ -118,6 +131,19 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "USVB";
             // 
+            // btLoadUSVB
+            // 
+            this.btLoadUSVB.BackColor = System.Drawing.SystemColors.Control;
+            this.btLoadUSVB.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btLoadUSVB.BackgroundImage")));
+            this.btLoadUSVB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btLoadUSVB.Location = new System.Drawing.Point(727, 68);
+            this.btLoadUSVB.Name = "btLoadUSVB";
+            this.btLoadUSVB.Size = new System.Drawing.Size(35, 38);
+            this.btLoadUSVB.TabIndex = 4;
+            this.toolTip.SetToolTip(this.btLoadUSVB, "Cargar Zona Basica de Control");
+            this.btLoadUSVB.UseVisualStyleBackColor = false;
+            this.btLoadUSVB.Click += new System.EventHandler(this.btLoadUSVB_Click);
+            // 
             // txtUSVBPath
             // 
             this.txtUSVBPath.Location = new System.Drawing.Point(98, 78);
@@ -133,6 +159,19 @@
             this.label1.Size = new System.Drawing.Size(28, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "ZBS";
+            // 
+            // btLoadZBS
+            // 
+            this.btLoadZBS.BackColor = System.Drawing.SystemColors.Control;
+            this.btLoadZBS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btLoadZBS.BackgroundImage")));
+            this.btLoadZBS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btLoadZBS.Location = new System.Drawing.Point(727, 22);
+            this.btLoadZBS.Name = "btLoadZBS";
+            this.btLoadZBS.Size = new System.Drawing.Size(35, 38);
+            this.btLoadZBS.TabIndex = 1;
+            this.toolTip.SetToolTip(this.btLoadZBS, "Cargar Zona Basica de Control");
+            this.btLoadZBS.UseVisualStyleBackColor = false;
+            this.btLoadZBS.Click += new System.EventHandler(this.btLoadZBS_Click);
             // 
             // txtZBSPath
             // 
@@ -170,6 +209,95 @@
             this.txtDatosUME.Size = new System.Drawing.Size(623, 20);
             this.txtDatosUME.TabIndex = 3;
             // 
+            // btLoadDatosUME
+            // 
+            this.btLoadDatosUME.BackColor = System.Drawing.SystemColors.Control;
+            this.btLoadDatosUME.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btLoadDatosUME.BackgroundImage")));
+            this.btLoadDatosUME.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btLoadDatosUME.Location = new System.Drawing.Point(715, 56);
+            this.btLoadDatosUME.Name = "btLoadDatosUME";
+            this.btLoadDatosUME.Size = new System.Drawing.Size(35, 38);
+            this.btLoadDatosUME.TabIndex = 4;
+            this.toolTip.SetToolTip(this.btLoadDatosUME, "Cargar Zona Basica de Control");
+            this.btLoadDatosUME.UseVisualStyleBackColor = false;
+            this.btLoadDatosUME.Click += new System.EventHandler(this.btLoadDatosUME_Click);
+            // 
+            // tpFinalData
+            // 
+            this.tpFinalData.BackColor = System.Drawing.SystemColors.Control;
+            this.tpFinalData.Controls.Add(this.label7);
+            this.tpFinalData.Controls.Add(this.btUpdateDB);
+            this.tpFinalData.Controls.Add(this.label6);
+            this.tpFinalData.Controls.Add(this.btClearDB);
+            this.tpFinalData.Controls.Add(this.label5);
+            this.tpFinalData.Controls.Add(this.btLoadDB);
+            this.tpFinalData.Location = new System.Drawing.Point(4, 22);
+            this.tpFinalData.Name = "tpFinalData";
+            this.tpFinalData.Padding = new System.Windows.Forms.Padding(3);
+            this.tpFinalData.Size = new System.Drawing.Size(768, 157);
+            this.tpFinalData.TabIndex = 2;
+            this.tpFinalData.Text = "Datos Estudio Finales";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(499, 69);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(60, 13);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Update DB";
+            // 
+            // btUpdateDB
+            // 
+            this.btUpdateDB.Image = global::LoadData.Properties.Resources.updateDB64;
+            this.btUpdateDB.Location = new System.Drawing.Point(590, 36);
+            this.btUpdateDB.Name = "btUpdateDB";
+            this.btUpdateDB.Size = new System.Drawing.Size(98, 78);
+            this.btUpdateDB.TabIndex = 4;
+            this.toolTip.SetToolTip(this.btUpdateDB, "Update DataBase");
+            this.btUpdateDB.UseVisualStyleBackColor = true;
+            this.btUpdateDB.Click += new System.EventHandler(this.btUpdateDB_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(271, 69);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 13);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Clear DB";
+            // 
+            // btClearDB
+            // 
+            this.btClearDB.Image = global::LoadData.Properties.Resources.removeDB64;
+            this.btClearDB.Location = new System.Drawing.Point(362, 36);
+            this.btClearDB.Name = "btClearDB";
+            this.btClearDB.Size = new System.Drawing.Size(98, 78);
+            this.btClearDB.TabIndex = 2;
+            this.toolTip.SetToolTip(this.btClearDB, "Clear DataBase");
+            this.btClearDB.UseVisualStyleBackColor = true;
+            this.btClearDB.Click += new System.EventHandler(this.btClearDB_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(18, 69);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(106, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Load final data in DB";
+            // 
+            // btLoadDB
+            // 
+            this.btLoadDB.Image = global::LoadData.Properties.Resources.loadDB64;
+            this.btLoadDB.Location = new System.Drawing.Point(148, 36);
+            this.btLoadDB.Name = "btLoadDB";
+            this.btLoadDB.Size = new System.Drawing.Size(98, 78);
+            this.btLoadDB.TabIndex = 0;
+            this.toolTip.SetToolTip(this.btLoadDB, "Load DataBase");
+            this.btLoadDB.UseVisualStyleBackColor = true;
+            this.btLoadDB.Click += new System.EventHandler(this.btLoadDB_Click);
+            // 
             // logPanel
             // 
             this.logPanel.Controls.Add(this.txtLog);
@@ -191,132 +319,6 @@
             // 
             this.openFileDialog.FileName = "openFileDialog";
             // 
-            // tpFinalData
-            // 
-            this.tpFinalData.BackColor = System.Drawing.SystemColors.Control;
-            this.tpFinalData.Controls.Add(this.label7);
-            this.tpFinalData.Controls.Add(this.button1);
-            this.tpFinalData.Controls.Add(this.label6);
-            this.tpFinalData.Controls.Add(this.btClearDB);
-            this.tpFinalData.Controls.Add(this.label5);
-            this.tpFinalData.Controls.Add(this.btLoadDB);
-            this.tpFinalData.Location = new System.Drawing.Point(4, 22);
-            this.tpFinalData.Name = "tpFinalData";
-            this.tpFinalData.Padding = new System.Windows.Forms.Padding(3);
-            this.tpFinalData.Size = new System.Drawing.Size(768, 157);
-            this.tpFinalData.TabIndex = 2;
-            this.tpFinalData.Text = "Datos Estudio Finales";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 69);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Load final data in DB";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(271, 69);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 13);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Clear DB";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(499, 69);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 13);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Update DB";
-            // 
-            // btLoadHospitales
-            // 
-            this.btLoadHospitales.BackColor = System.Drawing.SystemColors.Control;
-            this.btLoadHospitales.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btLoadHospitales.BackgroundImage")));
-            this.btLoadHospitales.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btLoadHospitales.Location = new System.Drawing.Point(727, 109);
-            this.btLoadHospitales.Name = "btLoadHospitales";
-            this.btLoadHospitales.Size = new System.Drawing.Size(35, 38);
-            this.btLoadHospitales.TabIndex = 7;
-            this.toolTip.SetToolTip(this.btLoadHospitales, "Cargar Zona Basica de Control");
-            this.btLoadHospitales.UseVisualStyleBackColor = false;
-            this.btLoadHospitales.Click += new System.EventHandler(this.btLoadHospitales_Click);
-            // 
-            // btLoadUSVB
-            // 
-            this.btLoadUSVB.BackColor = System.Drawing.SystemColors.Control;
-            this.btLoadUSVB.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btLoadUSVB.BackgroundImage")));
-            this.btLoadUSVB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btLoadUSVB.Location = new System.Drawing.Point(727, 68);
-            this.btLoadUSVB.Name = "btLoadUSVB";
-            this.btLoadUSVB.Size = new System.Drawing.Size(35, 38);
-            this.btLoadUSVB.TabIndex = 4;
-            this.toolTip.SetToolTip(this.btLoadUSVB, "Cargar Zona Basica de Control");
-            this.btLoadUSVB.UseVisualStyleBackColor = false;
-            this.btLoadUSVB.Click += new System.EventHandler(this.btLoadUSVB_Click);
-            // 
-            // btLoadZBS
-            // 
-            this.btLoadZBS.BackColor = System.Drawing.SystemColors.Control;
-            this.btLoadZBS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btLoadZBS.BackgroundImage")));
-            this.btLoadZBS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btLoadZBS.Location = new System.Drawing.Point(727, 22);
-            this.btLoadZBS.Name = "btLoadZBS";
-            this.btLoadZBS.Size = new System.Drawing.Size(35, 38);
-            this.btLoadZBS.TabIndex = 1;
-            this.toolTip.SetToolTip(this.btLoadZBS, "Cargar Zona Basica de Control");
-            this.btLoadZBS.UseVisualStyleBackColor = false;
-            this.btLoadZBS.Click += new System.EventHandler(this.btLoadZBS_Click);
-            // 
-            // btLoadDatosUME
-            // 
-            this.btLoadDatosUME.BackColor = System.Drawing.SystemColors.Control;
-            this.btLoadDatosUME.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btLoadDatosUME.BackgroundImage")));
-            this.btLoadDatosUME.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btLoadDatosUME.Location = new System.Drawing.Point(715, 56);
-            this.btLoadDatosUME.Name = "btLoadDatosUME";
-            this.btLoadDatosUME.Size = new System.Drawing.Size(35, 38);
-            this.btLoadDatosUME.TabIndex = 4;
-            this.toolTip.SetToolTip(this.btLoadDatosUME, "Cargar Zona Basica de Control");
-            this.btLoadDatosUME.UseVisualStyleBackColor = false;
-            this.btLoadDatosUME.Click += new System.EventHandler(this.btLoadDatosUME_Click);
-            // 
-            // button1
-            // 
-            this.button1.Image = global::LoadData.Properties.Resources.updateDB64;
-            this.button1.Location = new System.Drawing.Point(590, 36);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 78);
-            this.button1.TabIndex = 4;
-            this.toolTip.SetToolTip(this.button1, "Update DataBase");
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btClearDB
-            // 
-            this.btClearDB.Image = global::LoadData.Properties.Resources.removeDB64;
-            this.btClearDB.Location = new System.Drawing.Point(362, 36);
-            this.btClearDB.Name = "btClearDB";
-            this.btClearDB.Size = new System.Drawing.Size(98, 78);
-            this.btClearDB.TabIndex = 2;
-            this.toolTip.SetToolTip(this.btClearDB, "Clear DataBase");
-            this.btClearDB.UseVisualStyleBackColor = true;
-            // 
-            // btLoadDB
-            // 
-            this.btLoadDB.Image = global::LoadData.Properties.Resources.loadDB64;
-            this.btLoadDB.Location = new System.Drawing.Point(148, 36);
-            this.btLoadDB.Name = "btLoadDB";
-            this.btLoadDB.Size = new System.Drawing.Size(98, 78);
-            this.btLoadDB.TabIndex = 0;
-            this.toolTip.SetToolTip(this.btLoadDB, "Load DataBase");
-            this.btLoadDB.UseVisualStyleBackColor = true;
-            this.btLoadDB.Click += new System.EventHandler(this.btLoadDB_Click);
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,10 +335,10 @@
             this.tpMasterData.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.logPanel.ResumeLayout(false);
-            this.logPanel.PerformLayout();
             this.tpFinalData.ResumeLayout(false);
             this.tpFinalData.PerformLayout();
+            this.logPanel.ResumeLayout(false);
+            this.logPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -368,7 +370,7 @@
         private System.Windows.Forms.Button btClearDB;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btUpdateDB;
     }
 }
 
