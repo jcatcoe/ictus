@@ -28,6 +28,16 @@ namespace LoadData
             ncLog.SetMyHome(this);
 
             //Util.LoadTemporalData();
+
+            //Util.CreateIctusDataTMPCollection();
+
+            //Util.CreateIctusDataTMPCollection2();
+
+            //Util.InfoDifferentCIE();
+
+            //Util.DifferentUSVB();
+
+
         }
 
         private void btLoadZBS_Click(object sender, EventArgs e)
@@ -36,7 +46,6 @@ namespace LoadData
             {
                 using (OpenFileDialog openFileDialog = new OpenFileDialog())
                 {
-                    //openFileDialog.InitialDirectory = "c:\\";
                     openFileDialog.Filter = "Excel files (*.xls)|*.xls|All files (*.*)|*.*";
                     openFileDialog.FilterIndex = 2;
                     openFileDialog.RestoreDirectory = true;
@@ -186,7 +195,6 @@ namespace LoadData
             {
                 using (OpenFileDialog openFileDialog = new OpenFileDialog())
                 {
-                    //openFileDialog.InitialDirectory = "c:\\";
                     openFileDialog.Filter = "Excel files (*.xls)|*.xls|All files (*.*)|*.*";
                     openFileDialog.FilterIndex = 2;
                     openFileDialog.RestoreDirectory = true;
@@ -514,11 +522,5 @@ namespace LoadData
 
             ncLog.Message("LoadDB::Nº rows inserted:[" + ictusDataInDB.Count() + "]");
         }
-    }
-
-    public class kk
-    {
-        public ObjectId Id { get; set; }
-        public long id { get; set; }
     }
 }

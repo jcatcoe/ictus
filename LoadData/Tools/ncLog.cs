@@ -76,7 +76,5 @@ namespace LoadData.Tools
         {
             LogMessageToFile("Message - " + msj, true);
         }
-
-
     }
 }

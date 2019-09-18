@@ -287,7 +287,7 @@ namespace LoadData.DataBase
             }
             catch (Exception exp)
             {
-                ncLog.Exception("NewIctusData::Exception::" + exp.Message);
+                ncLog.Exception("DeleteIctusData::Exception::" + exp.Message);
             }
 
             return result;
@@ -305,20 +305,173 @@ namespace LoadData.DataBase
             }
             catch (Exception exp)
             {
-                ncLog.Exception("NewIctusData::Exception::" + exp.Message);
+                ncLog.Exception("DropIctusData::Exception::" + exp.Message);
             }
 
             return result;
         }
 
+        //----------------------------------------------- ictusDataTMP ----------------------------------------------- //
 
+        public static List<ictusDataTMP> GetAllictusDataTMP()
+        {
+            List<ictusDataTMP> ictusDataTMPList = new List<ictusDataTMP>();
 
+            try
+            {
+                IMongoCollection<ictusDataTMP> collection = db.GetCollection<ictusDataTMP>("ictusDataTMP");
 
+                if (collection != null)
+                {
+                    ictusDataTMPList = collection.AsQueryable().ToList();
+                }
+            }
+            catch (Exception exp)
+            {
+                ncLog.Exception("GetAllictusDataTMP::Exception::" + exp.Message);
+            }
 
+            return ictusDataTMPList;
+        }
 
+        public static bool NewIctusDataTMP(ictusDataTMP newIctusData)
+        {
+            bool result = false;
 
+            try
+            {
+                IMongoCollection<ictusDataTMP> collection = db.GetCollection<ictusDataTMP>("ictusDataTMP");
 
+                collection.InsertOneAsync(newIctusData);
 
+                result = true;
+            }
+            catch (Exception exp)
+            {
+                ncLog.Exception("NewIctusDataTMP::Exception::" + exp.Message);
+            }
+
+            return result;
+        }
+
+        public static bool DeleteIctusDataTMP(long pacienteID)
+        {
+            bool result = false;
+
+            try
+            {
+                IMongoCollection<ictusDataTMP> collection = db.GetCollection<ictusDataTMP>("ictusDataTMP");
+
+                System.Threading.Tasks.Task<DeleteResult> tempResult = collection.DeleteOneAsync(x => x.pacienteID == pacienteID);
+
+                result = true;
+            }
+            catch (Exception exp)
+            {
+                ncLog.Exception("DeleteIctusDataTMP::Exception::" + exp.Message);
+            }
+
+            return result;
+        }
+
+        public static bool DropIctusDataTMP()
+        {
+            bool result = false;
+
+            try
+            {
+                db.DropCollection("ictusDataTMP");
+
+                result = true;
+            }
+            catch (Exception exp)
+            {
+                ncLog.Exception("DropIctusDataTMP::Exception::" + exp.Message);
+            }
+
+            return result;
+        }
+
+        //----------------------------------------------- ictusDataTMP2 ----------------------------------------------- //
+
+        public static List<ictusDataTMP2> GetAllictusDataTMP2()
+        {
+            List<ictusDataTMP2> ictusDataTMP2List = new List<ictusDataTMP2>();
+
+            try
+            {
+                IMongoCollection<ictusDataTMP2> collection = db.GetCollection<ictusDataTMP2>("ictusDataTMP2");
+
+                if (collection != null)
+                {
+                    ictusDataTMP2List = collection.AsQueryable().ToList();
+                }
+            }
+            catch (Exception exp)
+            {
+                ncLog.Exception("GetAllictusDataTMP2::Exception::" + exp.Message);
+            }
+
+            return ictusDataTMP2List;
+        }
+
+        public static bool NewIctusDataTMP2(ictusDataTMP2 newIctusData)
+        {
+            bool result = false;
+
+            try
+            {
+                IMongoCollection<ictusDataTMP2> collection = db.GetCollection<ictusDataTMP2>("ictusDataTMP2");
+
+                collection.InsertOneAsync(newIctusData);
+
+                result = true;
+            }
+            catch (Exception exp)
+            {
+                ncLog.Exception("NewIctusDataTMP2::Exception::" + exp.Message);
+            }
+
+            return result;
+        }
+
+        public static bool DeleteIctusDataTMP2(long pacienteID)
+        {
+            bool result = false;
+
+            try
+            {
+                IMongoCollection<ictusDataTMP2> collection = db.GetCollection<ictusDataTMP2>("ictusDataTMP2");
+
+                System.Threading.Tasks.Task<DeleteResult> tempResult = collection.DeleteOneAsync(x => x.pacienteID == pacienteID);
+
+                result = true;
+            }
+            catch (Exception exp)
+            {
+                ncLog.Exception("DeleteIctusDataTMP2::Exception::" + exp.Message);
+            }
+
+            return result;
+        }
+
+        public static bool DropIctusDataTMP2()
+        {
+            bool result = false;
+
+            try
+            {
+                db.DropCollection("ictusDataTMP2");
+
+                result = true;
+            }
+            catch (Exception exp)
+            {
+                ncLog.Exception("DropIctusDataTMP2::Exception::" + exp.Message);
+            }
+
+            return result;
+        }
 
     }
 }

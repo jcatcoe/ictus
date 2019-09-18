@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LoadData.DataBase
 {
-    public class umeDataTMP// : IEquatable<umeDataTMP>
+    public class umeDataTMP
     {
         public ObjectId Id { get; set; }
         public long inc_id { get; set; }
@@ -138,42 +138,5 @@ namespace LoadData.DataBase
                 inc_id = Int64.MinValue;
             }
         }
-
-        //public bool Equals(umeDataTMP other)
-        //{
-
-        //    //Check whether the compared object is null. 
-        //    if (Object.ReferenceEquals(other, null)) return false;
-
-        //    //Check whether the compared object references the same data. 
-        //    if (Object.ReferenceEquals(this, other)) return true;
-
-        //    //Check whether the products' properties are equal. 
-        //    return act_tac.Equals(other.act_tac) &&
-        //           act_ttr.Equals(other.act_ttr) &&
-        //           act_tes.Equals(other.act_tes) &&
-        //           act_tra.Equals(other.act_tra) &&
-        //           act_trf.Equals(other.act_trf) &&
-        //           dim_zbs_nombre.Equals(other.dim_zbs_nombre) &&
-        //           pac_sexo.Equals(other.pac_sexo) &&
-        //           edad.Equals(other.edad) &&
-        //           cie_codigo.Equals(other.cie_codigo);
-
-        //}
-
-        //public override int GetHashCode()
-        //{
-
-        //    return act_tac.GetHashCode() ^
-        //        act_ttr.GetHashCode() ^
-        //        act_tes.GetHashCode() ^
-        //        act_tra.GetHashCode() ^
-        //        act_trf.GetHashCode() ^
-        //        dim_zbs_nombre.GetHashCode() ^
-        //        pac_sexo.GetHashCode() ^
-        //        edad.GetHashCode() ^
-        //        cie_codigo.GetHashCode();
-        //}
-
     }
 }

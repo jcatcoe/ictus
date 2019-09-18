@@ -19,64 +19,31 @@ namespace LoadData.DataBase
 
 
         ////Hospital
-        //public int hospital_codigo { get; set; }
-        //public string hospital_nombre { get; set; }
-        //public int hospital_provincia_codigo { get; set; }
-        //public int hospital_municipio_codigo { get; set; }
-        //public string hospital_ccaa { get; set; }
-        //public string hospital_direccion { get; set; }
-        //public string hospital_ubicacion { get; set; }
+       
         public hospital hospital { get; set; }
 
         ////ZBS
-        //public int zbs_codigo { get; set; }
-        //public string zbs_nombre { get; set; }
-        //public string zbs_tipo { get; set; }
-        //public int zbs_provincia_codigo { get; set; }
-        //public string zbs_area { get; set; }
-        //public int zbs_tis { get; set; }
-        //public string zbs_delimitacion { get; set; }
+       
         public zbs zbs { get; set; }
 
         ////USVB
-        //public int usvb_codigo { get; set; }
-        //public string usvb_nombre { get; set; }
-        //public int usvb_provincia_codigo { get; set; }
-        //public int usvb_municipio_codigo { get; set; }
-        //public string usvb_rural_urbano { get; set; }
-        //public string usvb_direccion { get; set; }
+       
         public usvb usvb { get; set; }
 
         ////Tiempos UME
-        //public int ume_tmp_activacion { get; set; }
-        //public int ume_tmp_trayecto { get; set; }
-        //public int ume_tmp_estabilizacion { get; set; }
-        //public int ume_tmp_traslado { get; set; }
-        //public int ume_tmp_trasferencia { get; set; }
+        
         public recurso umeRecurso { get; set; }
 
         ////Tiempo SVB
-        //public int svb_tmp_activacion { get; set; }
-        //public int svb_tmp_trayecto { get; set; }
-        //public int svb_tmp_estabilizacion { get; set; }
-        //public int svb_tmp_traslado { get; set; }
-        //public int svb_tmp_trasferencia { get; set; }
+        
         public recurso svbRecurso { get; set; }
 
         ////Tiempo Helicoptero
-        //public int heli_tmp_activacion { get; set; }
-        //public int heli_tmp_trayecto { get; set; }
-        //public int heli_tmp_estabilizacion { get; set; }
-        //public int heli_tmp_traslado { get; set; }
-        //public int heli_tmp_trasferencia { get; set; }
+        
         public recurso heliRecurso { get; set; }
 
         ////Tiempo Atencion Primaria y Otros
-        //public int attpri_tmp_activacion { get; set; }
-        //public int attpri__tmp_trayecto { get; set; }
-        //public int attpri__tmp_estabilizacion { get; set; }
-        //public int attpri__tmp_traslado { get; set; }
-        //public int attpri__tmp_trasferencia { get; set; }
+        
         public recurso attpriRecurso { get; set; }
 
         internal bool ok { get; set; }
@@ -105,21 +72,6 @@ namespace LoadData.DataBase
                     hospital = hospitalFound;
                 }
 
-
-                //if (hospitalFound == null)
-                //{
-                //    ncLog.Warning("ictusData::Unable to find hospital by name:" + inputUmeDataTMP.dim_recurso_nombreHospital);
-                //}
-                //else
-                //{
-                //    hospital_codigo = hospitalFound.recurso_codigo;
-                //    hospital_nombre = hospitalFound.recurso_nombre;
-                //    hospital_provincia_codigo = hospitalFound.recurso_provincia_codigo;
-                //    hospital_municipio_codigo = hospitalFound.recurso_municipio_codigo;
-                //    hospital_ccaa = hospitalFound.recurso_ccaa;
-                //    hospital_direccion = hospitalFound.recurso_direccion;
-                //    hospital_ubicacion = hospitalFound.recurso_ubicacion;
-                //}
                 //////////////////////////////////////HOSPITAL//////////////////////////////////////
 
                 //////////////////////////////////////ZBS//////////////////////////////////////
@@ -134,20 +86,6 @@ namespace LoadData.DataBase
                     zbs = ZBSFound;
                 }
 
-                //if (ZBSFound == null)
-                //{
-                //    ncLog.Warning("ictusData::Unable to find ZBS by name:" + inputUmeDataTMP.dim_zbs_nombre);
-                //}
-                //else
-                //{
-                //    zbs_codigo = ZBSFound.codigo;
-                //    zbs_nombre = ZBSFound.nombre;
-                //    zbs_tipo = ZBSFound.tipo;
-                //    zbs_provincia_codigo = ZBSFound.provincia_codigo;
-                //    zbs_area = ZBSFound.area;
-                //    zbs_tis = ZBSFound.tis;
-                //    zbs_delimitacion = ZBSFound.delimitacion;
-                //}
                 //////////////////////////////////////ZBS//////////////////////////////////////
 
 
@@ -164,19 +102,6 @@ namespace LoadData.DataBase
                     usvb = USVBFound;
                 }
 
-                //if (USVBFound == null)
-                //{
-                //    ncLog.Warning("ictusData::Unable to find USVB by name:" + inputUmeDataTMP.dim_recurso_nombreUSVB);
-                //}
-                //else
-                //{
-                //    usvb_codigo = USVBFound.recurso_codigo;
-                //    usvb_nombre = USVBFound.recurso_nombre;
-                //    usvb_provincia_codigo = USVBFound.recurso_provincia_codigo;
-                //    usvb_municipio_codigo = USVBFound.recurso_municipio_codigo;
-                //    usvb_rural_urbano = USVBFound.recurso_rural_urbano;
-                //    usvb_direccion = USVBFound.recurso_direccion;
-                //}
                 //////////////////////////////////////USVB//////////////////////////////////////
 
                 ////Tiempos UME
@@ -207,9 +132,6 @@ namespace LoadData.DataBase
                     attpriRecurso = new recurso("ATTPRI", inputUmeDataTMP.act_tac, inputUmeDataTMP.act_tra, inputUmeDataTMP.act_tes, inputUmeDataTMP.act_tra, inputUmeDataTMP.act_trf);
                 }
 
-
-                //recurso attpriRecurso = inputUmeDataTMP.;
-
                 ok = true;
             }
             catch (Exception exp)
@@ -227,11 +149,6 @@ namespace LoadData.DataBase
                     ncLog.Error("ictusData::Null or empty input umeDataTMP list");
                     ok = false;
                     return;
-                }
-
-                if (umeDataTMPList.Count() > 1)
-                {
-
                 }
 
                 pacienteID = npacienteID;
@@ -338,9 +255,6 @@ namespace LoadData.DataBase
 
                         attpriRecurso = new recurso("ATTPRI", iter.act_tac, iter.act_tra, iter.act_tes, iter.act_tra, iter.act_trf);
                     }
-
-
-                    //recurso attpriRecurso = inputUmeDataTMP.;
 
                     ok = true;
                 }

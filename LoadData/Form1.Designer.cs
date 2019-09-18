@@ -111,7 +111,7 @@
             this.btLoadHospitales.Name = "btLoadHospitales";
             this.btLoadHospitales.Size = new System.Drawing.Size(35, 38);
             this.btLoadHospitales.TabIndex = 7;
-            this.toolTip.SetToolTip(this.btLoadHospitales, "Cargar Zona Basica de Control");
+            this.toolTip.SetToolTip(this.btLoadHospitales, "Cargar Hospital");
             this.btLoadHospitales.UseVisualStyleBackColor = false;
             this.btLoadHospitales.Click += new System.EventHandler(this.btLoadHospitales_Click);
             // 
@@ -140,7 +140,7 @@
             this.btLoadUSVB.Name = "btLoadUSVB";
             this.btLoadUSVB.Size = new System.Drawing.Size(35, 38);
             this.btLoadUSVB.TabIndex = 4;
-            this.toolTip.SetToolTip(this.btLoadUSVB, "Cargar Zona Basica de Control");
+            this.toolTip.SetToolTip(this.btLoadUSVB, "Cargar Unidad de Sporte Vital Básico");
             this.btLoadUSVB.UseVisualStyleBackColor = false;
             this.btLoadUSVB.Click += new System.EventHandler(this.btLoadUSVB_Click);
             // 
@@ -169,7 +169,7 @@
             this.btLoadZBS.Name = "btLoadZBS";
             this.btLoadZBS.Size = new System.Drawing.Size(35, 38);
             this.btLoadZBS.TabIndex = 1;
-            this.toolTip.SetToolTip(this.btLoadZBS, "Cargar Zona Basica de Control");
+            this.toolTip.SetToolTip(this.btLoadZBS, "Cargar Zona Basica de Salud");
             this.btLoadZBS.UseVisualStyleBackColor = false;
             this.btLoadZBS.Click += new System.EventHandler(this.btLoadZBS_Click);
             // 
@@ -218,7 +218,7 @@
             this.btLoadDatosUME.Name = "btLoadDatosUME";
             this.btLoadDatosUME.Size = new System.Drawing.Size(35, 38);
             this.btLoadDatosUME.TabIndex = 4;
-            this.toolTip.SetToolTip(this.btLoadDatosUME, "Cargar Zona Basica de Control");
+            this.toolTip.SetToolTip(this.btLoadDatosUME, "Cargar Datos Temporales");
             this.btLoadDatosUME.UseVisualStyleBackColor = false;
             this.btLoadDatosUME.Click += new System.EventHandler(this.btLoadDatosUME_Click);
             // 
@@ -241,16 +241,16 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(499, 69);
+            this.label7.Location = new System.Drawing.Point(557, 20);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 13);
+            this.label7.Size = new System.Drawing.Size(115, 13);
             this.label7.TabIndex = 5;
-            this.label7.Text = "Update DB";
+            this.label7.Text = "Actualizar datos finales";
             // 
             // btUpdateDB
             // 
             this.btUpdateDB.Image = global::LoadData.Properties.Resources.updateDB64;
-            this.btUpdateDB.Location = new System.Drawing.Point(590, 36);
+            this.btUpdateDB.Location = new System.Drawing.Point(560, 36);
             this.btUpdateDB.Name = "btUpdateDB";
             this.btUpdateDB.Size = new System.Drawing.Size(98, 78);
             this.btUpdateDB.TabIndex = 4;
@@ -261,16 +261,16 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(271, 69);
+            this.label6.Location = new System.Drawing.Point(333, 20);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 13);
+            this.label6.Size = new System.Drawing.Size(97, 13);
             this.label6.TabIndex = 3;
-            this.label6.Text = "Clear DB";
+            this.label6.Text = "Borrar datos finales";
             // 
             // btClearDB
             // 
             this.btClearDB.Image = global::LoadData.Properties.Resources.removeDB64;
-            this.btClearDB.Location = new System.Drawing.Point(362, 36);
+            this.btClearDB.Location = new System.Drawing.Point(332, 36);
             this.btClearDB.Name = "btClearDB";
             this.btClearDB.Size = new System.Drawing.Size(98, 78);
             this.btClearDB.TabIndex = 2;
@@ -281,16 +281,16 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 69);
+            this.label5.Location = new System.Drawing.Point(92, 20);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 13);
+            this.label5.Size = new System.Drawing.Size(100, 13);
             this.label5.TabIndex = 1;
-            this.label5.Text = "Load final data in DB";
+            this.label5.Text = "Cargar datos finales";
             // 
             // btLoadDB
             // 
             this.btLoadDB.Image = global::LoadData.Properties.Resources.loadDB64;
-            this.btLoadDB.Location = new System.Drawing.Point(148, 36);
+            this.btLoadDB.Location = new System.Drawing.Point(94, 36);
             this.btLoadDB.Name = "btLoadDB";
             this.btLoadDB.Size = new System.Drawing.Size(98, 78);
             this.btLoadDB.TabIndex = 0;
@@ -326,6 +326,7 @@
             this.ClientSize = new System.Drawing.Size(800, 729);
             this.Controls.Add(this.logPanel);
             this.Controls.Add(this.tabControl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Load Data";

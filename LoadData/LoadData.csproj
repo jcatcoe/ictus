@@ -72,6 +72,8 @@
   <ItemGroup>
     <Compile Include="DataBase\ictusData.cs" />
     <Compile Include="DataBase\hospital.cs" />
+    <Compile Include="DataBase\ictusDataTMP.cs" />
+    <Compile Include="DataBase\ictusDataTMP2.cs" />
     <Compile Include="DataBase\IctusDBManager.cs" />
     <Compile Include="DataBase\umeData.cs" />
     <Compile Include="DataBase\umeDataTMP.cs" />

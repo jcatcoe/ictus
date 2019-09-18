@@ -37,9 +37,6 @@ namespace LoadData.Tools
                 ++cont;
             }
 
-            //string[] stringArray = array.OfType<object>().Select(o => o.ToString()).ToArray();
-            //stringArray = array.OfType<object>().Select(o => o.ToString()).ToArray();
-
             return stringArray;
         }
 
@@ -160,7 +157,6 @@ namespace LoadData.Tools
 
                 if (result == null)
                 {
-                    //ncLog.Warning("FindUSVBByName::Unable to find USVB from name:" + usvbName + ". Using this name!!");
                     result = new usvb();
                     result.recurso_nombre = usvbName;
                 }
@@ -193,7 +189,6 @@ namespace LoadData.Tools
 
                 if (result == null)
                 {
-                    //ncLog.Warning("FindZBSByName::Unable to find ZBS from name:" + zbsName + ". Using this name!!");
                     result = new zbs();
                     result.nombre = zbsName;
                 }
@@ -226,7 +221,6 @@ namespace LoadData.Tools
 
                 if (result == null)
                 {
-                    //ncLog.Warning("FindHospitalByName::Unable to find Hospital from name:" + hospitalName + ". Using this name!!");
                     result = new hospital();
                     result.recurso_nombre = hospitalName;
                 }
@@ -245,7 +239,6 @@ namespace LoadData.Tools
         {
             Microsoft.Office.Interop.Excel.Range workingRangeCells =
               excelWorksheet.get_Range(range, Type.Missing);
-            //workingRangeCells.Select();
 
             System.Array array = (System.Array)workingRangeCells.Cells.Value2;
             string[] arrayS = Util.ConvertToStringArray(array);
@@ -385,7 +378,6 @@ namespace LoadData.Tools
             return result;
         }
 
-
         public static string GetCIECcode(List<umeDataTMP> list)
         {
             string result = string.Empty;
@@ -492,10 +484,11 @@ namespace LoadData.Tools
                     result = FilterByHelicoptero(result.ToList());
 
                     msg += " - FilterByHelico:[" + result.Count() + "]";
+
                     if (result.Count() > 1)
                     {
-                        //ncLog.Message(msg);
-                        //PrintResults(ID, result);
+                        ncLog.Message(msg);
+                        PrintResults(ID, result);
                     }
                 }
 
@@ -571,6 +564,191 @@ namespace LoadData.Tools
             var known = new HashSet<TKey>();
             return source.Where(element => known.Add(keySelector(element)));
         }
+
+        public static void CreateIctusDataTMPCollection()
+        {
+            List<ictusData> ictusDataList = IctusDBManager.GetAllictusData();
+
+            if(ictusDataList != null && ictusDataList.Count() > 0)
+            {
+                ncLog.Message("Nº rows ictusDataList:" + ictusDataList.Count());
+                int cont = 0;
+
+                foreach (ictusData iter in ictusDataList)
+                {
+                    ictusDataTMP newIctusDataTMP = new ictusDataTMP(iter);
+
+                    if (!newIctusDataTMP.IsOk())
+                    {
+                        ncLog.Error("Unable to create newIctusDataTMP for pacienteID:" + iter.pacienteID);
+                    }
+                    else
+                    {
+                        if (!IctusDBManager.NewIctusDataTMP(newIctusDataTMP))
+                        {
+                            ncLog.Error("Unable to insert newIctusDataTMP for pacienteID:" + newIctusDataTMP.pacienteID);
+                        }
+                        else
+                        {
+                            ++cont;
+                            ncLog.Message("Inserted ictusDataTMP nº:" + cont);
+                        }
+                    }
+                }
+            }
+        }
+
+        public static void CreateIctusDataTMPCollection2()
+        {
+             List<ictusDataTMP> ictusDataList = IctusDBManager.GetAllictusDataTMP();
+
+            if (ictusDataList != null && ictusDataList.Count() > 0)
+            {
+                ncLog.Message("Nº rows ictusDataList:" + ictusDataList.Count());
+                int cont = 0;
+
+                foreach (ictusDataTMP iter in ictusDataList)
+                {
+                    ictusDataTMP2 newIctusDataTMP = new ictusDataTMP2(iter);
+
+                    if (!newIctusDataTMP.IsOk())
+                    {
+                        ncLog.Error("Unable to create newIctusDataTMP2 for pacienteID:" + iter.pacienteID);
+                    }
+                    else
+                    {
+                        if (!IctusDBManager.NewIctusDataTMP2(newIctusDataTMP))
+                        {
+                            ncLog.Error("Unable to insert newIctusDataTMP2 for pacienteID:" + newIctusDataTMP.pacienteID);
+                        }
+                        else
+                        {
+                            ++cont;
+                            ncLog.Message("Inserted ictusDataTMP2 nº:" + cont);
+                        }
+                    }
+                }
+            }
+        }
+
+        public static void InfoDifferentCIE()
+        {
+            Dictionary<long, List<umeDataTMP>> result = new Dictionary<long, List<umeDataTMP>>();
+
+            try
+            {
+                List<umeDataTMP> umeDataTMPList = IctusDBManager.GetAllUmeDataTMP();
+
+                if (umeDataTMPList == null || umeDataTMPList.Count() == 0)
+                {
+                    ncLog.Error("InfoDifferentCIE::Null or empty umeDataTMPList!!");
+                    return;
+                }
+
+                string msg = "ID,CIE1,Responsable1,CIE2, Responsable2";
+
+                Dictionary<long, List<umeDataTMP>>  umeDataTMPMap = umeDataTMPList.GroupBy(x => x.inc_id).ToDictionary(y => y.Key, y => y.ToList());
+
+                if(umeDataTMPMap != null && umeDataTMPMap.Count() != 0)
+                {
+                    foreach(KeyValuePair<long, List<umeDataTMP>> iter in umeDataTMPMap)
+                    {
+                        long pacienteID = iter.Key;
+
+                        List<string> cieGroup = iter.Value.Select(x => x.cie_codigo).Distinct().ToList();
+
+                        if(cieGroup != null && cieGroup.Count() > 1)
+                        {
+                            msg += "\r\n" + pacienteID;
+
+                            int size = cieGroup.Count;
+                            int counter = 1;
+
+                            foreach (string iterCie in cieGroup)
+                            {
+                                if(size == 3)
+                                {
+                                    if(counter == 2)
+                                    {
+                                        ++counter;
+                                        continue;
+                                    }
+                                }
+
+                                umeDataTMP dataFound = iter.Value.Where(x => x.cie_codigo == iterCie).FirstOrDefault();
+
+                                msg += "," + iterCie + "," + dataFound.dim_responsable_nombre;
+
+                                ++counter;
+                            }
+
+                            msg += "," + iter.Value.FirstOrDefault().inc_sello_temporal.Year;
+                        }
+                            
+                    }
+                }
+
+                ncLog.Message(msg);
+
+                
+            }
+            catch (Exception exp)
+            {
+                ncLog.Exception("InfoDifferentCIE::" + exp.Message);
+            }
+        }
+
+        public static void DifferentUSVB()
+        {
+            List<ictusDataTMP> ictusDataTMPList =  IctusDBManager.GetAllictusDataTMP();
+
+            if(ictusDataTMPList != null && ictusDataTMPList.Count() > 0)
+            {
+                List<string> usbList = ictusDataTMPList.Select(x => x.usvb_nombre).Distinct().ToList();
+
+                
+                int svbN = ictusDataTMPList.Where(x => x.usvb_nombre.Contains("SVB") || x.usvb_nombre.Contains("ACU")).Count();
+                int umeN = ictusDataTMPList.Where(x => x.usvb_nombre.Contains("UME") || x.usvb_nombre.Contains("UVI") || x.usvb_nombre.Contains("VIR")).Count();
+                int heliN = ictusDataTMPList.Where(x => x.usvb_nombre.Contains("HELI")).Count();
+
+                ncLog.Message("DifferentUSVB::svbN:" + svbN + " - umeN:" + umeN + "heliN:" + heliN);
+
+                Dictionary<int, List< ictusDataTMP>> svbMpa =  ictusDataTMPList.Where(x => x.usvb_nombre.Contains("SVB") || x.usvb_nombre.Contains("ACU")).GroupBy(x => x.fecha.Year).ToDictionary(y => y.Key, y => y.ToList());
+                Dictionary<int, List<ictusDataTMP>> umeMap = ictusDataTMPList.Where(x => x.usvb_nombre.Contains("UME") || x.usvb_nombre.Contains("UVI") || x.usvb_nombre.Contains("VIR")).GroupBy(x => x.fecha.Year).ToDictionary(y => y.Key, y => y.ToList());
+                Dictionary<int, List<ictusDataTMP>> heliMap = ictusDataTMPList.Where(x => x.usvb_nombre.Contains("HELI")).GroupBy(x => x.fecha.Year).ToDictionary(y => y.Key, y => y.ToList());
+
+                string msg = string.Empty;
+
+                foreach(KeyValuePair<int, List<ictusDataTMP>> iter in svbMpa)
+                {
+                    msg += "\r\nAño:" + iter.Key + " - Nº Registrsos:" + iter.Value.Count();
+                }
+
+                ncLog.Message("SVBMap::" + msg);
+
+                msg = string.Empty;
+
+                foreach (KeyValuePair<int, List<ictusDataTMP>> iter in umeMap)
+                {
+                    msg += "\r\nAño:" + iter.Key + " - Nº Registrsos:" + iter.Value.Count();
+                }
+
+                ncLog.Message("umeMap::" + msg);
+
+                msg = string.Empty;
+
+                foreach (KeyValuePair<int, List<ictusDataTMP>> iter in heliMap)
+                {
+                    msg += "\r\nAño:" + iter.Key + " - Nº Registrsos:" + iter.Value.Count();
+                }
+
+                ncLog.Message("heliMap::" + msg);
+
+                int a = 0;
+
+            }
+        }
+
 
     }
 }

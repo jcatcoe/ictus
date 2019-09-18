@@ -73,108 +73,99 @@ namespace LoadData.DataBase
                     return;
                 }
 
-                //if (string.IsNullOrEmpty(inputArray[10].Trim()) ||
-                //    string.IsNullOrEmpty(inputArray[13].Trim()) ||
-                //    string.IsNullOrEmpty(inputArray[15].Trim()))
-                //{
-                //    ok = false;
-                //}
-                //else
+                if (string.IsNullOrEmpty(inputArray[0]))
                 {
-                    if (string.IsNullOrEmpty(inputArray[0]))
-                    {
-                        inc_id = Int64.MinValue;
-                    }
-                    else
-                    {
-                        inc_id = Convert.ToInt64(inputArray[0]);
-                    }
-
-                    if (string.IsNullOrEmpty(inputArray[1]))
-                    {
-                        inc_sello_temporal = DateTime.MinValue;
-                    }
-                    else
-                    {
-                        inc_sello_temporal = Convert.ToDateTime(inputArray[1]);
-                    }
-
-                    usvb = Util.FindUSVBByName(inputArray[2]);
-
-                    
-                    if (string.IsNullOrEmpty(inputArray[3]))
-                    {
-                        act_tac = 0;
-                    }
-                    else
-                    {
-                        act_tac = Convert.ToInt32(inputArray[3]);
-                    }
-
-                    if (string.IsNullOrEmpty(inputArray[4]))
-                    {
-                        act_ttr = 0;
-                    }
-                    else
-                    {
-                        act_ttr = Convert.ToInt32(inputArray[4]);
-                    }
-
-                    if (string.IsNullOrEmpty(inputArray[5]))
-                    {
-                        act_tes = 0;
-                    }
-                    else
-                    {
-                        act_tes = Convert.ToInt32(inputArray[5]);
-                    }
-
-                    if (string.IsNullOrEmpty(inputArray[6]))
-                    {
-                        act_tra = 0;
-                    }
-                    else
-                    {
-                        act_tra = Convert.ToInt32(inputArray[6]);
-                    }
-
-                    if (string.IsNullOrEmpty(inputArray[7]))
-                    {
-                        act_trf = 0;
-                    }
-                    else
-                    {
-                        act_trf = Convert.ToInt32(inputArray[7]);
-                    }
-
-                    zbs = Util.FindZBSByName(inputArray[8]);
-
-                    pac_sexo = inputArray[9].Trim();
-                    
-                    if (string.IsNullOrEmpty(inputArray[10]))
-                    {
-                        edad = Int32.MinValue;
-                    }
-                    else
-                    {
-                        edad = Convert.ToInt32(inputArray[10]);
-                    }
-
-                    if (string.IsNullOrEmpty(inputArray[11]))
-                    {
-                        cie_codigo = double.MinValue;
-                    }
-                    else
-                    {
-                        cie_codigo = Convert.ToDouble(inputArray[11]);
-                    }
-
-                    dim_responsable_nombre = inputArray[12].Trim();
-
-                    hospital = Util.FindHospitalByName(inputArray[13]);
-
-                    dim_maquina_motivo_nombre = inputArray[14].Trim();
+                    inc_id = Int64.MinValue;
                 }
+                else
+                {
+                    inc_id = Convert.ToInt64(inputArray[0]);
+                }
+
+                if (string.IsNullOrEmpty(inputArray[1]))
+                {
+                    inc_sello_temporal = DateTime.MinValue;
+                }
+                else
+                {
+                    inc_sello_temporal = Convert.ToDateTime(inputArray[1]);
+                }
+
+                usvb = Util.FindUSVBByName(inputArray[2]);
+
+                    
+                if (string.IsNullOrEmpty(inputArray[3]))
+                {
+                    act_tac = 0;
+                }
+                else
+                {
+                    act_tac = Convert.ToInt32(inputArray[3]);
+                }
+
+                if (string.IsNullOrEmpty(inputArray[4]))
+                {
+                    act_ttr = 0;
+                }
+                else
+                {
+                    act_ttr = Convert.ToInt32(inputArray[4]);
+                }
+
+                if (string.IsNullOrEmpty(inputArray[5]))
+                {
+                    act_tes = 0;
+                }
+                else
+                {
+                    act_tes = Convert.ToInt32(inputArray[5]);
+                }
+
+                if (string.IsNullOrEmpty(inputArray[6]))
+                {
+                    act_tra = 0;
+                }
+                else
+                {
+                    act_tra = Convert.ToInt32(inputArray[6]);
+                }
+
+                if (string.IsNullOrEmpty(inputArray[7]))
+                {
+                    act_trf = 0;
+                }
+                else
+                {
+                    act_trf = Convert.ToInt32(inputArray[7]);
+                }
+
+                zbs = Util.FindZBSByName(inputArray[8]);
+
+                pac_sexo = inputArray[9].Trim();
+                    
+                if (string.IsNullOrEmpty(inputArray[10]))
+                {
+                    edad = Int32.MinValue;
+                }
+                else
+                {
+                    edad = Convert.ToInt32(inputArray[10]);
+                }
+
+                if (string.IsNullOrEmpty(inputArray[11]))
+                {
+                    cie_codigo = double.MinValue;
+                }
+                else
+                {
+                    cie_codigo = Convert.ToDouble(inputArray[11]);
+                }
+
+                dim_responsable_nombre = inputArray[12].Trim();
+
+                hospital = Util.FindHospitalByName(inputArray[13]);
+
+                dim_maquina_motivo_nombre = inputArray[14].Trim();
             }
 
             catch (Exception exp)

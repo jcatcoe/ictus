@@ -52,49 +52,39 @@ namespace LoadData.DataBase
                     return;
                 }
 
-                //if (string.IsNullOrEmpty(inputArray[1].Trim()) ||
-                //    string.IsNullOrEmpty(inputArray[4].Trim()) ||
-                //    string.IsNullOrEmpty(inputArray[5].Trim()))
-                //{
-                //    ok = false;
-                //}
-                //else
+                if (string.IsNullOrEmpty(inputArray[0]))
                 {
-                    if (string.IsNullOrEmpty(inputArray[0]))
-                    {
-                        recurso_codigo = Int32.MinValue;
-                    }
-                    else
-                    {
-                        recurso_codigo = Convert.ToInt32(inputArray[0]);
-                    }
+                    recurso_codigo = Int32.MinValue;
+                }
+                else
+                {
+                    recurso_codigo = Convert.ToInt32(inputArray[0]);
+                }
 
 
-                    recurso_nombre = inputArray[1].Trim();
+                recurso_nombre = inputArray[1].Trim();
 
-                    if (string.IsNullOrEmpty(inputArray[2]))
-                    {
-                        recurso_provincia_codigo = Int32.MinValue;
-                    }
-                    else
-                    {
-                        recurso_provincia_codigo = Convert.ToInt32(inputArray[2]);
-                    }
+                if (string.IsNullOrEmpty(inputArray[2]))
+                {
+                    recurso_provincia_codigo = Int32.MinValue;
+                }
+                else
+                {
+                    recurso_provincia_codigo = Convert.ToInt32(inputArray[2]);
+                }
 
                     
-                    if (string.IsNullOrEmpty(inputArray[3]))
-                    {
-                        recurso_municipio_codigo = Int32.MinValue;
-                    }
-                    else
-                    {
-                        recurso_municipio_codigo = Convert.ToInt32(inputArray[3]);
-                    }
-
-                    recurso_rural_urbano = inputArray[4].Trim();
-                    recurso_direccion = inputArray[5].Trim(); ;
-
+                if (string.IsNullOrEmpty(inputArray[3]))
+                {
+                    recurso_municipio_codigo = Int32.MinValue;
                 }
+                else
+                {
+                    recurso_municipio_codigo = Convert.ToInt32(inputArray[3]);
+                }
+
+                recurso_rural_urbano = inputArray[4].Trim();
+                recurso_direccion = inputArray[5].Trim();
             }
             catch (Exception exp)
             {
